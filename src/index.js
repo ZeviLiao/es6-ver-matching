@@ -74,12 +74,12 @@ let b = rsp.data
 
         console.log({
             clientId: dev.clientId,
-            // pk: pk.length > 0 && pk.every(v => v === true),
-            // cmd: cmd.length > 0 && cmd.every(v => v === true),
-            // ver: ver.length > 0 && ver.every(v => v === true)
-            pk,
-            cmd,
-            ver
+            pk: pk.length > 0 && pk.every(v => v === true),
+            cmd: cmd.length > 0 && cmd.every(v => v === true),
+            ver: ver.length > 0 && ver.every(v => v === true)
+            // pk,
+            // cmd,
+            // ver
         })
     })
 
