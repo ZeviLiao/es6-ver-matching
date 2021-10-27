@@ -1,0 +1,132 @@
+{
+    "status": {
+      "code": 0,
+      "message": "OK",
+      "description": "get capability success."
+    },
+    "data": [
+      {
+        "requestId": "1635319677119",
+        "clientId": "0-10390NNNB22029P0024-0TP3#rms",
+        "createdAt": "2021-10-27T07:27:57.358Z",
+        "updatedAt": "2021-10-27T07:27:57.358Z",
+        "reply": [
+          {
+            "id": "285263",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdCapabilityJson",
+            "result": "error_package_not_found",
+            "value": "none"
+          },
+          null,
+          {
+            "id": "099721",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "985820",
+            "packageName": "com.nuwarobotics.app.microcoding",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "414779",
+            "packageName": "com.nuwarobotics.app.nuwaplayer",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          }
+        ],
+        "apps": [],
+        "files": [],
+        "groups": [],
+        "creator": "3 4"
+      },
+      {
+        "requestId": "1635319677119",
+        "clientId": "0-10390NNNB1201500009-3FX3#rms",
+        "createdAt": "2021-10-27T07:27:57.525Z",
+        "updatedAt": "2021-10-27T07:27:57.525Z",
+        "reply": [
+          {
+            "id": "169210",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdCapabilityJson",
+            "result": "error_package_not_found",
+            "value": "none"
+          },
+          null,
+          {
+            "id": "954525",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "927611",
+            "packageName": "com.nuwarobotics.app.microcoding",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "655771",
+            "packageName": "com.nuwarobotics.app.nuwaplayer",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          }
+        ],
+        "apps": [],
+        "files": [],
+        "groups": [],
+        "creator": "3 4"
+      },
+      {
+        "requestId": "1635319677119",
+        "clientId": "0-10390NNNB12014TEST01-5678#rms",
+        "createdAt": "2021-10-27T07:27:57.522Z",
+        "updatedAt": "2021-10-27T07:27:57.522Z",
+        "reply": [
+          {
+            "id": "416316",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdCapabilityJson",
+            "result": "success",
+            "value": "[\n  {\"type\": \"register\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/3/18\"},\n  {\"type\": \"login\",     \"version\" :\"1.0.0\",\"updateDate\": \"2019/3/18\"},\n  {\"type\": \"logout\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/3/18\"},\n  {\"type\": \"update_task_status\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/3/28\"},\n  {\"type\": \"set_robot_unregister\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/4/3\"},\n  {\"type\": \"get_robot_info\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/4/3\"},\n  {\"type\": \"set_robot_reset\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/4/8\"},\n  {\"type\": \"set_ota_update\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/4/8\"},\n  {\"type\": \"set_start_voice\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/8/19\"},\n  {\"type\": \"set_stop_voice\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/8/19\"},\n  {\"type\": \"set_robot_name\",      \"version\" :\"1.0.0\",\"updateDate\": \"2019/10/24\"},\n  {\"type\": \"set_app_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/3/2\"},\n  {\"type\": \"set_app_uninstall\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/3/25\"},\n  {\"type\": \"refresh_token\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/17\"},\n  {\"type\": \"stop_code_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/17\"},\n  {\"type\": \"stop_code_install_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/17\"},\n  {\"type\": \"pass_message\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/24\"},\n  {\"type\": \"set_code_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/28\"},\n  {\"type\": \"code_install_result\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/28\"},\n  {\"type\": \"code_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/9/28\"},\n  {\"type\": \"set_file_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/11/30\"},\n  {\"type\": \"set_start_receive\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/11/3\"},\n  {\"type\": \"set_stop_receive\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/11/3\"},\n  {\"type\": \"file_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2020/11/30\"},\n  {\"type\": \"set_code_play\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/1/19\"},\n  {\"type\": \"set_face_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"face_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"face_install_result\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"set_brain_war_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"brain_war_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"brain_war_install_result\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"set_slide_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"slide_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"slide_install_result\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/1\"},\n  {\"type\": \"SET_DANCE_START\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"DANCE_START\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"DANCE_QUIT\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_robot_mute\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_robot_mute_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_robot_mute\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_robot_mute_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_robot_lock\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_robot_lock_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_robot_lock\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_robot_lock_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_list\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"performance_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"performance_install_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_play\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_play_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_pause\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_pause_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_performance_pause\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_performance_pause_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_performance_play\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_performance_play_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_schedule\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"performance_install_progress\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"set_performance_schedule_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"show_performance_act\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"show_performance_act_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_show_performance_act\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"stop_show_performance_act_response\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"update_robot_dance_complete\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/4/21\"},\n  {\"type\": \"update_robot_info\",\"version\" :\"1.0.0\",\"updateDate\": \"2021/4/28\"},\n  {\"type\": \"set_config_install\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/5/7\"},\n  {\"type\": \"get_team_info\",      \"version\" :\"1.0.0\",\"updateDate\": \"2021/8/23\"}\n]\n\n"
+          },
+          null,
+          {
+            "id": "644997",
+            "packageName": "com.nuwarobotics.lib.rms",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "523622",
+            "packageName": "com.nuwarobotics.app.microcoding",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          },
+          {
+            "id": "714613",
+            "packageName": "com.nuwarobotics.app.nuwaplayer",
+            "queryCmd": "cmdPackageExist",
+            "result": "success",
+            "value": "true"
+          }
+        ],
+        "apps": [],
+        "files": [],
+        "groups": [],
+        "creator": "3 4"
+      }
+    ]
+  }

@@ -1,0 +1,23 @@
+[
+  {
+    "type": "cmdCapabilityJson",
+    "packageName": "com.nuwarobotics.lib.rms",
+    "require": "true",
+    "featureList": [
+      {
+        "featureName": "set_file_install",
+        "dependenciesVersion": ">=1.0.0"
+      }
+    ]
+  },
+  {
+    "type": "cmdPackageExist",
+    "packageName": "com.nuwarobotics.lib.rms",
+    "require": "true"
+  },
+  {
+    "type": "cmdPackageExist",
+    "packageName": "com.nuwarobotics.app.microcoding",
+    "require": "true"
+  }
+]
