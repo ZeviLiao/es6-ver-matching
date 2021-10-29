@@ -36,7 +36,7 @@ let b = rsp.data
 
         // multi
         dep_apk.forEach(a => {
-            if (a.type !== 'cmdCapabilityJson') {
+            if (a.type === 'cmdPackageExist') {
                 let _pk = lib.find(
                     o => (o.packageName === a.packageName
                         && o.queryCmd === a.type
@@ -48,29 +48,33 @@ let b = rsp.data
         });
 
 
-        let apk = dep_apk.find(o => o.type === 'cmdCapabilityJson')
-        let cmds = lib.find(
-            o => (o.queryCmd === apk.type &&
-                o.packageName === apk.packageName)
-        )
+        // multi
+        let apks = dep_apk.filter(o => o.type === 'cmdCapabilityJson')
 
-        if (cmds) {
-            let flist = apk.featureList
-            flist.forEach(a => {
-                let _cmd = JSON.parse(cmds.value).find(
-                    q => q.type === a.featureName
-                )
-                let _ver = JSON.parse(cmds.value).find(
-                    q => q.type === a.featureName &&
-                        semver.satisfies(
-                            q.version,
-                            a.dependenciesVersion
-                        )
-                )
-                cmd.push(!!_cmd)
-                ver.push(!!_ver)
-            });
-        }
+        apks.forEach(apk => {
+            let cmds = lib.find(
+                o => (o.queryCmd === apk.type &&
+                    o.packageName === apk.packageName)
+            )
+
+            if (cmds) {
+                let flist = apk.featureList
+                flist.forEach(a => {
+                    let _cmd = JSON.parse(cmds.value).find(
+                        q => q.type === a.featureName
+                    )
+                    let _ver = JSON.parse(cmds.value).find(
+                        q => q.type === a.featureName &&
+                            semver.satisfies(
+                                q.version,
+                                a.dependenciesVersion
+                            )
+                    )
+                    cmd.push(!!_cmd)
+                    ver.push(!!_ver)
+                });
+            }
+        });
 
         console.log({
             clientId: dev.clientId,
