@@ -1,6 +1,6 @@
-// import dep_apk from './matching-version/dependenciesList-apk.json'
-// import dep_apk from "./matching-version/dependenciesList-mbkx.json";
-import dep_apk from "./matching-version/dependenciesList-mbtx.json";
+import dep_apk from './matching-version/dependenciesList-apk.json'
+import dep_mbkx from "./matching-version/dependenciesList-mbkx.json";
+import dep_mbtx from "./matching-version/dependenciesList-mbtx.json";
 import { saveBlockList, filterBlock } from './utils/libs'
 import rsp from './matching-version/res.json'
 import semver from 'semver'
@@ -23,69 +23,81 @@ import semver from 'semver'
 //     }))
 
 
+let fileTypeList = { dep_apk /*, dep_mbkx, dep_mbtx*/ } // 
 
-let b = rsp.data
-    .forEach(dev => {
-        let pk = []
-        let cmd = []
-        let ver = []
+const varToString = varObj => Object.keys(varObj)[0]
+Object.keys(fileTypeList)
+    .forEach(ftypeName => {
+        checkV(fileTypeList[ftypeName], ftypeName)
+    });
 
-        let lib = dev.reply.filter(
-            o => (o && o.result === 'success') // online
-        )
+function checkV(depType, depName) {
+    let b = rsp.data
+        .forEach(dev => {
+            let pk = []
+            let cmd = []
+            let ver = []
 
-        // multi
-        dep_apk.forEach(a => {
-            if (a.type === 'cmdPackageExist') {
-                let _pk = lib.find(
-                    o => (o.packageName === a.packageName
-                        && o.queryCmd === a.type
-                        && o.value === a.require)
-                )
-                pk.push(!!_pk)
-                // console.log(_pk)
-            }
-        });
-
-
-        // multi
-        let apks = dep_apk.filter(o => o.type === 'cmdCapabilityJson')
-
-        apks.forEach(apk => {
-            let cmds = lib.find(
-                o => (o.queryCmd === apk.type &&
-                    o.packageName === apk.packageName)
+            let lib = dev.reply.filter(
+                o => (o && o.result === 'success') // online
             )
 
-            if (cmds) {
-                let flist = apk.featureList
-                flist.forEach(a => {
-                    let _cmd = JSON.parse(cmds.value).find(
-                        q => q.type === a.featureName
+            // multi
+            depType.forEach(a => {
+                if (a.type === 'cmdPackageExist') {
+                    let _pk = lib.find(
+                        o => (o.packageName === a.packageName
+                            && o.queryCmd === a.type
+                            && o.value === a.require)
                     )
-                    let _ver = JSON.parse(cmds.value).find(
-                        q => q.type === a.featureName &&
-                            semver.satisfies(
-                                q.version,
-                                a.dependenciesVersion
-                            )
-                    )
-                    cmd.push(!!_cmd)
-                    ver.push(!!_ver)
-                });
-            }
-        });
+                    pk.push(!!_pk)
+                    // console.log(_pk)
+                }
+            });
 
-        console.log({
-            clientId: dev.clientId,
-            pk: pk.length > 0 && pk.every(v => v === true),
-            cmd: cmd.length > 0 && cmd.every(v => v === true),
-            ver: ver.length > 0 && ver.every(v => v === true)
-            // pk,
-            // cmd,
-            // ver
+
+            // multi
+            let cmdJsons = depType.filter(o => o.type === 'cmdCapabilityJson')
+
+            cmdJsons.forEach(apk => {
+                let cmds = lib.find(
+                    o => (o.queryCmd === apk.type &&
+                        o.packageName === apk.packageName)
+                )
+
+                if (cmds) {
+                    let flist = apk.featureList
+                    flist.forEach(a => {
+                        let _cmd = JSON.parse(cmds.value).find(
+                            q => q.type === a.featureName
+                        )
+                        let _ver = JSON.parse(cmds.value).find(
+                            q => q.type === a.featureName &&
+                                semver.satisfies(
+                                    q.version,
+                                    a.dependenciesVersion
+                                )
+                        )
+                        cmd.push(!!_cmd)
+                        ver.push(!!_ver)
+                    });
+                }
+            });
+
+            console.log({
+                depName: depName,
+                clientId: dev.clientId,
+                // pk: pk.length > 0 && pk.every(v => v === true),
+                // cmd: cmd.length > 0 && cmd.every(v => v === true),
+                // ver: ver.length > 0 && ver.every(v => v === true)
+                pk,
+                cmd,
+                ver
+            })
         })
-    })
+}
+
+
 
 
 
