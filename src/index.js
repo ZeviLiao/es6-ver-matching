@@ -50,7 +50,10 @@ function checkV(depType, depName) {
                             && o.queryCmd === a.type
                             && o.value === a.require)
                     )
-                    pk.push(!!_pk)
+                    // pk.push(!!_pk)
+                    if (!_pk) {
+                        pk.push(a)
+                    }
                     // console.log(_pk)
                 }
             });
@@ -68,18 +71,28 @@ function checkV(depType, depName) {
                 if (cmds) {
                     let flist = apk.featureList
                     flist.forEach(a => {
+                        let _ver = {}
                         let _cmd = JSON.parse(cmds.value).find(
                             q => q.type === a.featureName
                         )
-                        let _ver = JSON.parse(cmds.value).find(
-                            q => q.type === a.featureName &&
-                                semver.satisfies(
-                                    q.version,
-                                    a.dependenciesVersion
-                                )
-                        )
-                        cmd.push(!!_cmd)
-                        ver.push(!!_ver)
+                        if (_cmd) {
+                            _ver = JSON.parse(cmds.value).find(
+                                q => q.type === a.featureName &&
+                                    semver.satisfies(
+                                        q.version,
+                                        a.dependenciesVersion
+                                    )
+                            )
+                        }
+
+                        // cmd.push(!!_cmd)
+                        // ver.push(!!_ver)
+                        if (!_cmd) {
+                            cmd.push(a)
+                        }
+                        if (!_ver) {
+                            ver.push(a)
+                        }
                     });
                 }
             });
