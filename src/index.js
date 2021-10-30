@@ -23,7 +23,7 @@ import semver from 'semver'
 //     }))
 
 
-let fileTypeList = { dep_apk /*, dep_mbkx, dep_mbtx*/ } // 
+let fileTypeList = { dep_mbkx/*, dep_apk, dep_mbkx, dep_mbtx*/ } // 
 
 const varToString = varObj => Object.keys(varObj)[0]
 Object.keys(fileTypeList)
@@ -39,7 +39,9 @@ function checkV(depType, depName) {
             let ver = []
 
             let lib = dev.reply.filter(
-                o => (o && o.result === 'success') // online
+                o => (o  // filter null
+                    //&& o.result === 'success'
+                ) // online
             )
 
             // multi
@@ -48,7 +50,8 @@ function checkV(depType, depName) {
                     let _pk = lib.find(
                         o => (o.packageName === a.packageName
                             && o.queryCmd === a.type
-                            && o.value === a.require)
+                            // && o.value === a.require
+                        )
                     )
                     // pk.push(!!_pk)
                     if (!_pk) {
@@ -67,46 +70,55 @@ function checkV(depType, depName) {
                     o => (o.queryCmd === apk.type &&
                         o.packageName === apk.packageName)
                 )
-
-                if (cmds) {
+                if (!cmds) {
+                    cmd.push('robot pkg not exit')
+                }
+                else if (cmds.value === 'none') {
+                    cmd.push('robot no result')
+                }
+                else {
                     let flist = apk.featureList
                     flist.forEach(a => {
-                        let _ver = {}
+                        // check command
                         let _cmd = JSON.parse(cmds.value).find(
                             q => q.type === a.featureName
                         )
+                        if (!_cmd) {
+                            cmd.push(`no cmd: ${a.featureName}`)
+                        }
+
+                        // check version
                         if (_cmd) {
-                            _ver = JSON.parse(cmds.value).find(
+                            let _ver = JSON.parse(cmds.value).find(
                                 q => q.type === a.featureName &&
                                     semver.satisfies(
                                         q.version,
                                         a.dependenciesVersion
                                     )
                             )
+                            if (!_ver) {
+                                ver.push(`the cmd: ${a.featureName} must ${a.dependenciesVersion}`)
+                            }
                         }
-
                         // cmd.push(!!_cmd)
                         // ver.push(!!_ver)
-                        if (!_cmd) {
-                            cmd.push(a)
-                        }
-                        if (!_ver) {
-                            ver.push(a)
-                        }
+
                     });
                 }
             });
 
-            console.log({
-                depName: depName,
-                clientId: dev.clientId,
-                // pk: pk.length > 0 && pk.every(v => v === true),
-                // cmd: cmd.length > 0 && cmd.every(v => v === true),
-                // ver: ver.length > 0 && ver.every(v => v === true)
-                pk,
-                cmd,
-                ver
-            })
+            console.log(
+                {
+                    depName: depName,
+                    clientId: dev.clientId,
+                    // pk: pk.length > 0 && pk.every(v => v === true),
+                    // cmd: cmd.length > 0 && cmd.every(v => v === true),
+                    // ver: ver.length > 0 && ver.every(v => v === true)
+                    pk,
+                    cmd,
+                    ver
+                }
+            )
         })
 }
 

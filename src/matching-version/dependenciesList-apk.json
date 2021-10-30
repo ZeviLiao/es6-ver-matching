@@ -6,18 +6,13 @@
     "featureList": [
       {
         "featureName": "set_app_install",
-        "dependenciesVersion": ">=1.2.0"
+        "dependenciesVersion": ">=1.0.0"
       }
     ]
   },
   {
     "type": "cmdPackageExist",
     "packageName": "com.nuwarobotics.lib.rms",
-    "require": "true"
-  },
-  {
-    "type": "cmdPackageExist",
-    "packageName": "com.nuwarobotics.lib.rms2",
     "require": "true"
   }
 ]
