@@ -1,5 +1,7 @@
 
 
+import semver from 'semver'
+
 const getJsonDoc = (docName) => {
     let jsonDoc = null
 
@@ -13,15 +15,31 @@ export const checkApk = (device) => {
     // "packageName" : "com.nuwarobotics.lib.rms", // apk
     let doc = getJsonDoc('apk')
     let result = capabilityCheck(doc, device.reply)
-    // checkV(fileTypeList[ftypeName], ftypeName)
-
-    // result = { // 只選第一個。
+    // result = { 
     //     packageName: "com.nuwarobotics.lib.rms", //缺少。
     //     featureName: "set_app_install", //缺少。
     //     dependenciesVersion: ">=1.0.0" //版不符。
     // }
+    return getType(device.clientId, result)
+}
 
-    // 決定 type, 
+export const checkMbkx = (device) => {
+    // "packageName" : "com.nuwarobotics.app.microcoding", // mbkx
+    let doc = getJsonDoc('mbkx')
+    let result = capabilityCheck(doc, device.reply)
+    return getType(device.clientId, result)
+}
+
+export const checkMbtx = (device) => {
+    // "packageName" : "com.nuwarobotics.app.nuwaplayer", // mbtx
+    let doc = getJsonDoc('mbtx')
+    let result = capabilityCheck(doc, device.reply)
+    return getType(device.clientId, result)
+
+}
+
+ // 決定 type, 
+function getType(dId, result) {
     let type = -1
     if (result.packageName
         || result.featureName
@@ -39,23 +57,11 @@ export const checkApk = (device) => {
 
     return {
         typeCode: type, // -1 is validate.
-        deviceId: device.clientId,
+        deviceId: dId,
         packageName: result.packageName,
         featureName: result.featureName,
         dependenciesVersion: result.dependenciesVersion
     }
-
-}
-
-export const checkMbkx = (deviceMeta) => {
-    // "packageName" : "com.nuwarobotics.app.microcoding", // mbkx
-    let doc = getJsonDoc('mbkx')
-}
-
-export const checkMbtx = (deviceMeta) => {
-    // "packageName" : "com.nuwarobotics.app.nuwaplayer", // mbtx
-    let doc = getJsonDoc('mbtx')
-
 }
 
 function capabilityCheck(depType, devMeta) {
