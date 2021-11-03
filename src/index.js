@@ -1,23 +1,26 @@
 
 import { checkApk, checkMbkx, checkMbtx } from './utils/capability'
 import rsp from './matching-version/res.json'
-import semver from 'semver'
+
+const checkTypes = {
+    'apk': checkApk,
+    'mbkx': checkMbkx,
+    'mbtx': checkMbtx
+}
 
 rsp.data.map(d => {
-    // console.log(d)
-    // each device for apk.
-    // console.log(checkApk(d))
+    // console.log(checkApk(d)) // each device for apk.
     let list = []
-    //same device.clientId
-    list.push(checkApk(d))
-    list.push(checkMbkx(d))
-    list.push(checkMbkx(d))
+    
+    Object.values(checkTypes).forEach(c => {
+        list.push(c(d))
+    })
 
-    const max = list.reduce((prev, current) => (
+    const maxOfType = list.reduce((prev, current) => (
         (prev.typeCode > current.typeCode) ? prev : current)
     )
 
-    console.log(max);
+    console.log(maxOfType);
 })
 
 
