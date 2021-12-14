@@ -29,7 +29,6 @@ Object.keys(checkTypes).forEach(type => {
     }
 })
 
-console.log(fArr)
 fArr.sort(function (a, b) {
     var nameA = a.dependenciesVersion; // ignore upper and lowercase
     var nameB = b.dependenciesVersion; // ignore upper and lowercase
@@ -43,7 +42,6 @@ fArr.sort(function (a, b) {
     // names must be equal
     return 0;
 });
-console.log(fArr)
 
 cmdTemplate.push({
     "type": "cmdCapabilityJson",
@@ -51,7 +49,8 @@ cmdTemplate.push({
     "require": "true",
     "featureList": [...new Map(fArr.map(v => [v.featureName, v])).values()]
 })
-cmdTemplate.push(...pArr)
+
+cmdTemplate.push(...new Map(pArr.map(v => [v.packageName, v])).values())
 
 console.log(JSON.stringify(cmdTemplate, null, 4))
 // console.log(cmdTemplate)
