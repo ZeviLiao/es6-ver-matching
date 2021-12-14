@@ -1,8 +1,6 @@
-
-
 import semver from 'semver'
 
-const getJsonDoc = (docName) => {
+export const getJsonDoc = (docName) => {
     let jsonDoc = null
 
     if (['apk', 'mbkx', 'mbtx', 'media'].includes(docName)) {

@@ -1,28 +1,25 @@
-
-import { checkApk, checkMbkx, checkMbtx, checkMedia } from './utils/capability'
+import { getJsonDoc } from './utils/capability'
 import rsp from './matching-version/res.json'
 
 const checkTypes = {
-    'apk': checkApk,
-    'mbkx': checkMbkx,
-    'mbtx': checkMbtx,
-    'media': checkMedia
+    'apk': 1,
+    'mbkx': 1,
+    'mbtx': 1,
+    'media': 1
 }
 
 rsp.data.map(d => {
-    // console.log(checkApk(d)) // each device for apk.
-    let list = []
-    
-    Object.values(checkTypes).forEach(c => {
-        list.push(c(d))
+
+    Object.keys(checkTypes).forEach(type => {
+        let content = getJsonDoc(type)
+        console.log(content)
     })
 
-    const maxOfType = list.reduce((prev, current) => (
-        (prev.typeCode > current.typeCode) ? prev : current)
-    )
-
-    console.log(maxOfType);
 })
+
+
+
+
 
 
 
