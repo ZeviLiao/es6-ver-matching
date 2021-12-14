@@ -1,19 +1,6 @@
-import { getJsonDoc } from './utils/capability'
+import { getJsonDoc , extJsonName} from './utils/capability'
 // import rsp from './matching-version/res.json'
 
-export function extJsonName(extsArr) {
-    let extNames = []
-    extsArr.forEach(ext => {
-        let ftype = ext
-
-        if (/(jpg|jpeg|png|gif|mp3|m4a|wav|mp4|mov|avi)/i.test(ext)) {
-            ftype = 'media'
-        }
-
-        if (ftype) extNames.push(ftype)
-    });
-    return extNames
-}
 
 
 // const typeGroup = extJsonName(['apk', 'mbkx', 'mbtx', 'avi'])

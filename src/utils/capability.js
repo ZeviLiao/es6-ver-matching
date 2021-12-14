@@ -1,12 +1,22 @@
 import semver from 'semver'
 
-export const getJsonDoc = (docName) => {
-    let jsonDoc = null
 
-    if (['apk', 'mbkx', 'mbtx', 'media'].includes(docName)) {
-        jsonDoc = require(`../matching-version/dependenciesList-${docName}.json`)
-    }
-    return jsonDoc
+export function extJsonName(extsArr) {
+    let extNames = []
+    extsArr.forEach(ext => {
+        let ftype = ext
+
+        if (/(jpg|jpeg|png|gif|mp3|m4a|wav|mp4|mov|avi)/i.test(ext)) {
+            ftype = 'media'
+        }
+
+        if (ftype) extNames.push(ftype)
+    });
+    return extNames
+}
+
+export const getJsonDoc = (docName) => {
+    return require(`../matching-version/dependenciesList-${docName}.json`)
 }
 
 export const checkApk = (device) => {
