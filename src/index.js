@@ -1,11 +1,12 @@
 
-import { checkApk, checkMbkx, checkMbtx } from './utils/capability'
+import { checkApk, checkMbkx, checkMbtx, checkMedia } from './utils/capability'
 import rsp from './matching-version/res.json'
 
 const checkTypes = {
     'apk': checkApk,
     'mbkx': checkMbkx,
-    'mbtx': checkMbtx
+    'mbtx': checkMbtx,
+    'media': checkMedia
 }
 
 rsp.data.map(d => {

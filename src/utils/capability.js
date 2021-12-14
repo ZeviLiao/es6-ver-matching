@@ -5,7 +5,7 @@ import semver from 'semver'
 const getJsonDoc = (docName) => {
     let jsonDoc = null
 
-    if (['apk', 'mbkx', 'mbtx'].includes(docName)) {
+    if (['apk', 'mbkx', 'mbtx', 'media'].includes(docName)) {
         jsonDoc = require(`../matching-version/dependenciesList-${docName}.json`)
     }
     return jsonDoc
@@ -38,7 +38,14 @@ export const checkMbtx = (device) => {
 
 }
 
- // 決定 type, 
+export const checkMedia = (device) => {
+    // "packageName" : "com.nuwarobotics.app.nuwaplayer", // media
+    let doc = getJsonDoc('media')
+    let result = capabilityCheck(doc, device.reply)
+    return getType(device.clientId, result)
+}
+
+// 決定 type, 
 function getType(dId, result) {
     let type = -1
     if (result.packageName
