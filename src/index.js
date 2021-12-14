@@ -1,18 +1,32 @@
 import { getJsonDoc } from './utils/capability'
 // import rsp from './matching-version/res.json'
 
-const checkTypes = {
-    'apk': 1,
-    'mbkx': 0,
-    'mbtx': 0,
-    'media': 1,
+export function extJsonName(extsArr) {
+    let extNames = []
+    extsArr.forEach(ext => {
+        let ftype = ext
+
+        if (/(jpg|jpeg|png|gif|mp3|m4a|wav|mp4|mov|avi)/i.test(ext)) {
+            ftype = 'media'
+        }
+
+        if (ftype) extNames.push(ftype)
+    });
+    return extNames
 }
+
+
+// const typeGroup = extJsonName(['apk', 'mbkx', 'mbtx', 'avi'])
+const typeGroup = extJsonName(['apk'])
+
 let cmdTemplate = []
 let fArr = []
 let pArr = []
 
-Object.keys(checkTypes).forEach(type => {
-    if (checkTypes[type] === 1) {
+let readyJsonDocs = ['apk', 'mbkx', 'mbtx', 'media']
+
+typeGroup.forEach(type => {
+    if (readyJsonDocs.includes(type)) {
         let content = getJsonDoc(type)
         content.forEach(element => {
             if (element.type === 'cmdCapabilityJson') {
