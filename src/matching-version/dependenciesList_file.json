@@ -1,0 +1,64 @@
+[
+  {
+    "type": "cmdCapabilityJson",
+    "packageName": "com.nuwarobotics.lib.rms",
+    "require": "true",
+    "featureList": [
+      {
+        "featureName": "mbtx",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "mbkx",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "png",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "jpeg",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "jpg",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "gif",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "mp3",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "m4a",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "wav",
+        "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "mp4",
+        "dependenciesVersion": ">=1.0.0"
+      }
+    ]
+  },
+  {
+    "type": "cmdPackageExist",
+    "packageName": "com.nuwarobotics.lib.rms",
+    "require": "true"
+  },
+  {
+    "type": "cmdPackageExist",
+    "packageName": "com.nuwarobotics.app.nuwaplayer",
+    "require": "true"
+  },
+  {
+    "type": "cmdPackageExist",
+    "packageName": "com.nuwarobotics.app.microcoding",
+    "require": "true"
+  }
+]
