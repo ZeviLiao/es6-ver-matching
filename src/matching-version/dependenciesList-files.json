@@ -43,6 +43,10 @@
       {
         "featureName": "mp4",
         "dependenciesVersion": ">=1.0.0"
+      },
+      {
+        "featureName": "mov",
+        "dependenciesVersion": ">=1.0.0"
       }
     ]
   },

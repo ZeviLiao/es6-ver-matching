@@ -1,49 +1,36 @@
-import { getJsonDoc , extJsonName} from './utils/capability'
-// import rsp from './matching-version/res.json'
+import { getJsonDoc } from './utils/capability'
 
 
 
-// const typeGroup = extJsonName(['apk', 'mbkx', 'mbtx', 'avi'])
-const typeGroup = extJsonName(['apk'])
+const typeGroup = ['mbkx', 'mbtx', 'jpg', 'mov', 'koding', 'csv']
 
-let cmdTemplate = []
+let content = []
 let fArr = []
 let pArr = []
 
-let readyJsonDocs = ['apk', 'mbkx', 'mbtx', 'media']
+let readyJsonDocs = ['apk', 'files']
 
-typeGroup.forEach(type => {
-    if (readyJsonDocs.includes(type)) {
-        let content = getJsonDoc(type)
-        content.forEach(element => {
-            if (element.type === 'cmdCapabilityJson') {
-                fArr = fArr.concat(element.featureList)
-            }
-            if (element.type === 'cmdPackageExist') {
-                pArr.push(element)
-            }
-        });
-    }
-})
+if (typeGroup.includes('apk')) {
+    let content = getJsonDoc('apk')
+}
+else {
+    content = getJsonDoc('files')
 
-fArr.sort(function (a, b) {
-    var nameA = a.dependenciesVersion; // ignore upper and lowercase
-    var nameB = b.dependenciesVersion; // ignore upper and lowercase
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
+    let inx = content.findIndex(o => o.type === 'cmdCapabilityJson')
+    let cmd = content[inx]
+    let checkedFeature = []
 
-    // names must be equal
-    return 0;
-});
+    const found = cmd.featureList.some(r => {
+        if (typeGroup.indexOf(r.featureName) > -1) {
+            checkedFeature.push(r)
+        }
+    })
 
-cmdTemplate.push({
-    "type": "cmdCapabilityJson",
-    "packageName": "com.nuwarobotics.lib.rms",
-    "require": "true",
-    "featureList": [...new Map(fArr.map(v => [v.featureName, v])).values()]
-})
+    cmd.featureList = checkedFeature
+}
 
-cmdTemplate.push(...new Map(pArr.map(v => [v.packageName, v])).values())
+console.log(JSON.stringify(content, null, 2))
 
-console.log(JSON.stringify(cmdTemplate, null, 4))
-// console.log(cmdTemplate)
+
+
+
