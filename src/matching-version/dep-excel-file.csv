@@ -1,0 +1,15 @@
+ext,dep1,dep2
+"{""featureName"":""mbkx"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.microcoding,com.nuwarobotics.lib.rms
+"  {""featureName"":""koding"",""dependenciesVersion"":"">=1.0.0""} ",com.nuwarobotics.app.microcoding,com.nuwarobotics.lib.rms
+"{""featureName"":""mbtx"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""png"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""jpeg"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""jpg"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""gif"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+" {""featureName"":""mp3"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""m4a"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""wav"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+"{""featureName"":""mp4"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+" {""featureName"":""mov"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.nuwaplayer,com.nuwarobotics.lib.rms
+" {""featureName"":""csv"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.app.lottery,com.nuwarobotics.lib.rms
+" {""featureName"":""apk"",""dependenciesVersion"":"">=1.0.0""}",com.nuwarobotics.lib.rms,
